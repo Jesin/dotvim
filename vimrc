@@ -18,4 +18,7 @@ set grepprg=grep\ -nH\ $*
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
+" OPTIONAL: Disabling vim-latex's placeholders.
+let g:Imap_UsePlaceHolders = 0
+
 call pathogen#infect()
