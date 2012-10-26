@@ -6,6 +6,7 @@ syntax on
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
+set mouse=a
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
