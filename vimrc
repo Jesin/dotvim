@@ -23,3 +23,4 @@ let g:tex_flavor='latex'
 let g:Imap_UsePlaceHolders = 0
 
 call pathogen#infect()
+call pathogen#helptags()
