@@ -4,6 +4,7 @@ set printoptions=paper:letter,left:0.8in,right:0.8in,top:1in,bottom:1in
 
 syntax on
 colorscheme delek
+set number
 
 filetype plugin indent on
 set tabstop=4
