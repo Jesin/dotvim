@@ -1,5 +1,6 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 
+set backup=off
 set printoptions=paper:letter,left:0.8in,right:0.8in,top:1in,bottom:1in
 
 syntax on
