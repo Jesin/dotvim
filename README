@@ -1,19 +1,33 @@
-If you have access to git:
+#!/bin/sh
 
-Installation:
+#If you have access to git:
+
+#Installation:
 	git clone https://github.com/Jesin/dotvim.git ~/.vim
 
-Create symlinks:
-	ln -s ~/.vim/vimrc ~/.vimrc
-	ln -s ~/.vim/gvimrc ~/.gvimrc
 
-Switch to the ~/.vim directory, and fetch submodules:
+#Switch to the ~/.vim directory, and fetch submodules:
 	cd ~/.vim
 	git submodule init
 	git submodule update
+	git submodule foreach git checkout master
+
+#Get the vimrc files in the right place:
+	for x in vimrc gvimrc; do
+		if [ -e "~/.$x" ]; then
+			echo "runtime $x" | diff -q "~/.$x" - || exit 1
+		else
+			echo "runtime $x" > "~/.$x" || exit 1
+		fi
+	done
 
 
-NOTE FOR SVN:
-	If you want 'svn co' to produce a directory structure that is
-	immediately usable in the way it would be after a 'git clone',
-	then append /trunk to the URL of the git repository.
+#Optionally eceive upstream plugin updates:
+	cd ~/.vim
+	git submodule foreach git pull
+
+
+#NOTE FOR SVN:
+	#If you want 'svn co' to produce a directory structure that is
+	#immediately usable in the way it would be after a 'git clone',
+	#then append /trunk to the URL of the git repository.
