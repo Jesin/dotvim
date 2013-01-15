@@ -1,4 +1,4 @@
-runtime bundle/pathogen/autoload/pathogen.vim
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 set nobackup
 set tabpagemax=32767
