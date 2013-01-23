@@ -15,7 +15,7 @@ set mouse=a
 
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
+" search in a single file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
@@ -28,7 +28,7 @@ let g:tex_flavor='latex'
 let g:Tex_SmartKeyQuote=0
 
 " OPTIONAL: Disabling vim-latex's placeholders.
-let g:Imap_UsePlaceHolders = 0
+let g:Imap_UsePlaceHolders=0
 
 call pathogen#infect()
 call pathogen#helptags()
