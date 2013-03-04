@@ -21,7 +21,7 @@
 	done
 
 
-#Optionally eceive upstream plugin updates:
+#Optionally receive upstream plugin updates:
 	cd ~/.vim
 	git submodule foreach git pull
 
