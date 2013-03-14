@@ -14,9 +14,9 @@
 #Get the vimrc files in the right place:
 	for x in vimrc gvimrc; do
 		if [ -e "~/.$x" ]; then
-			echo "runtime $x" | diff -q "~/.$x" - || exit 1
+			echo "runtime $x" | diff -q "~/.$x" - || exit "$?"
 		else
-			echo "runtime $x" > "~/.$x" || exit 1
+			echo "runtime $x" > "~/.$x" || exit "$?"
 		fi
 	done
 
