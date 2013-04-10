@@ -5,13 +5,8 @@
 #Installation:
 	git clone https://github.com/Jesin/dotvim.git ~/.vim
 
-#Switch to the ~/.vim directory, and fetch submodules:
-	cd ~/.vim
-	git submodule init
-	git submodule update
-	git submodule foreach git checkout master
-
 #Get the vimrc files in the right place:
+	cd ~/.vim
 	for x in vimrc gvimrc; do
 		if [ -e "~/.$x" ]; then
 			echo "runtime $x" | diff -q "~/.$x" - || exit "$?"
@@ -21,9 +16,8 @@
 	done
 
 
-#Optionally receive upstream plugin updates:
-	cd ~/.vim
-	git submodule foreach git pull
+# Install and update plugins:
+	vim '+BundleInstall!' '+qa'
 
 
 #NOTE FOR SVN:
