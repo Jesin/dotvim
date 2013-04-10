@@ -3,7 +3,8 @@
 #If you have access to git:
 
 #Installation:
-	git clone https://github.com/Jesin/dotvim.git ~/.vim
+	git clone https://github.com/Jesin/dotvim ~/.vim
+	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 
 #Get the vimrc files in the right place:
 	cd ~/.vim
@@ -15,10 +16,8 @@
 		fi
 	done
 
-
 # Install and update plugins:
 	vim '+BundleInstall!' '+qa'
-
 
 #NOTE FOR SVN:
 	#If you want 'svn co' to produce a directory structure that is
