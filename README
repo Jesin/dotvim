@@ -4,6 +4,7 @@
 
 #Installation:
 	git clone https://github.com/Jesin/dotvim ~/.vim
+	mkdir -p ~/.vim/bundle
 	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 
 #Get the vimrc files in the right place:
