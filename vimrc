@@ -16,6 +16,7 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'benmills/vimux'
+Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 
 set nobackup
