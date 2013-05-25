@@ -33,6 +33,8 @@ set shiftwidth=4
 set noexpandtab
 set mouse=a
 
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a single file. This will confuse Latex-Suite. Set your grep
