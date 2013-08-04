@@ -31,6 +31,7 @@ set number
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
+set backspace=indent,eol,start
 set mouse=a
 
 let g:ycm_autoclose_preview_window_after_completion=1
