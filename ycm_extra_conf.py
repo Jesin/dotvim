@@ -86,7 +86,7 @@ def FlagsForFile( filename ):
 		# ycm_extra_conf IF YOU'RE NOT 100% YOU NEED IT.
 	else:
 		relative_to = DirectoryOfThisScript()
-		flags[:0] = (('-std=c++11', '-x', 'c++', '-I/usr/include/c++/4.8.1') if filename.lower().endswith(('.cc','.hh','.cpp','.hpp','.cxx','.hxx')) else ('-std=c11', '-x', 'c'))
+		flags[:0] = (('-std=c++11', '-x', 'c++', '-I/usr/include/c++/4.8.2') if filename.lower().endswith(('.cc','.hh','.cpp','.hpp','.cxx','.hxx')) else ('-std=c11', '-x', 'c'))
 		final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
 	return {
