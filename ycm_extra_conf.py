@@ -17,11 +17,11 @@ from clang_helpers import PrepareClangFlags
 # relevant for c++ headers.
 # For a C project, you would set this to 'c' instead of 'c++'.
 flags = [
+'-I/usr/include/c++/4.8.2',
 '-O',
 '-D_FORTIFY_SOURCE=2',
 '-I',
-'.'
-]
+'.']
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
@@ -86,7 +86,7 @@ def FlagsForFile( filename ):
 		# ycm_extra_conf IF YOU'RE NOT 100% YOU NEED IT.
 	else:
 		relative_to = DirectoryOfThisScript()
-		flags[:0] = (('-std=c++11', '-x', 'c++', '-I/usr/include/c++/4.8.2') if filename.lower().endswith(('.cc','.hh','.cpp','.hpp','.cxx','.hxx')) else ('-std=c11', '-x', 'c'))
+		flags[:0] = (('-std=c++11', '-x', 'c++') if filename.lower().endswith(('.cc','.hh','.cpp','.hpp','.cxx','.hxx')) else ('-std=c11', '-x', 'c'))
 		final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
 	return {
