@@ -1,10 +1,10 @@
 filetype off
 
 if has('win32') || has('win64')
-	set rtp+=~/vimfiles/bundle/vundle
+	set rtp+=~/vimfiles/bundle/Vundle.vim
 	call vundle#rc('$HOME/vimfiles/bundle')
 else
-	set rtp+=~/.vim/bundle/vundle
+	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#rc()
 endif
 Plugin 'gmarik/Vundle.vim'
