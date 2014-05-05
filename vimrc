@@ -7,7 +7,7 @@ else
 	set rtp+=~/.vim/bundle/vundle
 	call vundle#rc()
 endif
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
