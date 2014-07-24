@@ -18,7 +18,7 @@ from clang_helpers import PrepareClangFlags
 # For a C project, you would set this to 'c' instead of 'c++'.
 flags = [
 '-I/usr/include',
-'-I/usr/include/c++/4.9.0',
+'-I/usr/include/c++/4.9.1',
 '-I/usr/include/c++/v1',
 '-O',
 '-D_FORTIFY_SOURCE=2',
