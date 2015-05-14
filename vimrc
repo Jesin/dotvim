@@ -1,11 +1,11 @@
+set nocompatible
 filetype off
-
 if has('win32') || has('win64')
 	set rtp+=~/vimfiles/bundle/Vundle.vim
-	call vundle#rc('$HOME/vimfiles/bundle')
+	call vundle#begin('$HOME/vimfiles/bundle')
 else
 	set rtp+=~/.vim/bundle/Vundle.vim
-	call vundle#rc()
+	call vundle#begin()
 endif
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
@@ -17,6 +17,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'benmills/vimux'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+call vundle#end()
 
 filetype plugin indent on
 syntax on
