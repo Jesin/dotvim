@@ -38,7 +38,9 @@ import ycm_core
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = ['-O', '-D_FORTIFY_SOURCE=2', '-I', '.']
-
+for d in os.listdir('/usr/include/c++/'):
+	flags.append('-isystem')
+	flags.append('/usr/include/c++/' + d)
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
