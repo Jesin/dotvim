@@ -15,7 +15,7 @@ Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'benmills/vimux'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
