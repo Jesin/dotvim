@@ -5,7 +5,7 @@
 #Installation:
 	git clone https://github.com/Jesin/dotvim ~/.vim
 	mkdir -p ~/.vim/bundle
-	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 
 #Get the vimrc files in the right place:
 	cd ~/.vim
@@ -18,7 +18,7 @@
 	done
 
 # Install and update plugins:
-	vim '+BundleInstall!' '+qa'
+	vim '+PluginUpdate'
 
 #NOTE FOR SVN:
 	#If you want 'svn co' to produce a directory structure that is

@@ -70,7 +70,7 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
 		return list( flags )
 	new_flags = []
 	make_next_absolute = False
-	path_flags = [ '-isystem', '-I', '-iquote', '--sysroot=' ]
+	path_flags = ('-isystem', '-I', '-iquote', '--sysroot=')
 	for flag in flags:
 		new_flag = flag
 
@@ -140,7 +140,7 @@ def FlagsForFile( filename, **kwargs ):
 		relative_to = DirectoryOfThisScript()
 		final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
-	final_flags.extend(('-std=c++11', '-x', 'c++') if filename.lower().endswith(('.cc','.hh','.cpp','.hpp','.cxx','.hxx')) else ('-std=c11', '-x', 'c'))
+	final_flags.extend(('-std=c++14', '-x', 'c++') if filename.lower().endswith(('.cc','.hh','.cpp','.hpp','.cxx','.hxx')) else ('-std=c11', '-x', 'c'))
 	return {
 		'flags': final_flags,
 		'do_cache': True
