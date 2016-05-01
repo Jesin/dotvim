@@ -24,7 +24,7 @@ syntax on
 colorscheme delek
 
 set popt=paper:letter,left:0.8in,right:0.8in,top:1in,bottom:1in
-set dir=/var/tmp// nobk tpm=32767 nu ts=4 sw=4 noet bs=indent,eol,start mouse=a
+set dir=/var/tmp// nobk tpm=32767 nu ts=4 sw=4 noet nofixeol bs=indent,eol,start mouse=a
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a single file. This will confuse Latex-Suite. Set your grep
