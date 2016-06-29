@@ -38,16 +38,33 @@ import ycm_core
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = ['-O', '-D_FORTIFY_SOURCE=2', '-I', '.']
-for d in os.listdir('/usr/include/c++/'):
-	flags.append('-isystem')
-	flags.append('/usr/include/c++/' + d)
+
+c_flags = ('-std=c11',)
+cxx_flags = ['-std=c++14']
+for s in os.listdir('/usr/include/c++/'):
+	cxx_flags.append('-isystem')
+	cxx_flags.append('/usr/include/c++/' + s)
+cxx_flags = tuple(cxx_flags)
+fext_flag_dict = {
+	'.c': ('-x', 'c') + c_flags,
+	'.h': ('-x', 'c-header') + c_flags,
+	'.m': ('-x', 'objective-c') + c_flags,
+	'.cc': ('-x', 'c++') + cxx_flags,
+	'.hh': ('-x', 'c++-header') + cxx_flags,
+	'.mm': ('-x', 'objective-c++') + cxx_flags
+}
+del c_flags, cxx_flags
+for s in ('.hpp', '.hxx', ''):
+	fext_flag_dict[s] = fext_flag_dict['.hh']
+for s in ('.cpp', '.cxx'):
+	fext_flag_dict[s] = fext_flag_dict['.cc']
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
 # more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html
 #
 # You can get CMake to generate this file for you by adding:
-#		set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
+#   set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 # to your CMakeLists.txt file.
 #
 # Most projects will NOT need to set this to anything; you can just change the
@@ -59,7 +76,9 @@ if os.path.exists( compilation_database_folder ):
 else:
 	database = None
 
-SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
+SOURCE_EXTENSIONS = ('.cc', '.cpp', '.cxx', '.c', '.m', '.mm')
+SOURCE_EXTENSIONS += tuple(s.upper() for s in SOURCE_EXTENSIONS if s != s.upper())
+del s
 
 def DirectoryOfThisScript():
 	return os.path.dirname( os.path.abspath( __file__ ) )
@@ -94,9 +113,10 @@ def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
 	return new_flags
 
 
+hdrexts = frozenset(('.h', '.hh', '.hpp', '.hxx', ''))
 def IsHeaderFile( filename ):
-	extension = os.path.splitext( filename )[ 1 ]
-	return extension in [ '.h', '.hxx', '.hpp', '.hh' ]
+	fext = os.path.splitext(filename)[1].lower()
+	return fext in hdrexts
 
 
 def GetCompilationInfoForFile( filename ):
@@ -129,18 +149,11 @@ def FlagsForFile( filename, **kwargs ):
 			compilation_info.compiler_flags_,
 			compilation_info.compiler_working_dir_ )
 
-		## NOTE: This is just for YouCompleteMe; it's highly likely that your project
-		## does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
-		## ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-		#try:
-		#	final_flags.remove( '-stdlib=libc++' )
-		#except ValueError:
-		#	pass
 	else:
 		relative_to = DirectoryOfThisScript()
 		final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
-	final_flags.extend(('-std=c++14', '-x', 'c++') if filename.lower().endswith(('.cc','.hh','.cpp','.hpp','.cxx','.hxx')) else ('-std=c11', '-x', 'c'))
+	final_flags.extend(fext_flag_dict.get(os.path.splitext(filename)[1].lower(), fext_flag_dict['.cc']))
 	return {
 		'flags': final_flags,
 		'do_cache': True
