@@ -37,7 +37,7 @@ import ycm_core
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
-flags = ['-O', '-D_FORTIFY_SOURCE=2', '-I', '.']
+flags = ['-O', '-D_FORTIFY_SOURCE=2', '-I', '.', '-Wpedantic']
 
 c_flags = ('-std=c11',)
 cxx_flags = ['-std=c++14']
