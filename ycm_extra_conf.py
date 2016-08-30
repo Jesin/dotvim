@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # vim:ft=python:noet:sw=4:ts=4
 
 # This file is NOT licensed under the GPLv3, which is the license for the rest
@@ -37,11 +37,12 @@ import ycm_core
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
-flags = ['-O', '-D_FORTIFY_SOURCE=2', '-I', '.', '-Wpedantic']
+flags = ['-O', '-D_FORTIFY_SOURCE=2', '-I', '.', '-Wall', '-Wextra', '-Wpedantic']
 
 c_flags = ('-std=c11',)
 cxx_flags = ['-std=c++14']
 for s in os.listdir('/usr/include/c++/'):
+	if s.rstrip('/') == 'v1': continue
 	cxx_flags.append('-isystem')
 	cxx_flags.append('/usr/include/c++/' + s)
 cxx_flags = tuple(cxx_flags)

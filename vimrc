@@ -42,5 +42,6 @@ let g:Tex_SmartKeyQuote=0
 " OPTIONAL: Disabling vim-latex's placeholders.
 let g:Imap_UsePlaceHolders=0
 
+let g:ycm_always_populate_location_list=1
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_global_ycm_extra_conf='~/.vim/ycm_extra_conf.py'
