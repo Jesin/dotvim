@@ -8,7 +8,7 @@ else
 	call vundle#begin()
 endif
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-latex/vim-latex'
@@ -21,10 +21,10 @@ call vundle#end()
 
 filet plugin indent on
 syn on
+set dir=/var/tmp// nobk tpm=32767 nu ts=4 sw=4 noet nofixeol bs=indent,eol,start mouse=a
+set popt=paper:letter,left:0.75in,right:0.75in,top:0.75in,bottom:0.75in,number:y bg=dark
 colo delek
 
-set popt=paper:letter,left:0.75in,right:0.75in,top:0.75in,bottom:0.75in,number:y
-set dir=/var/tmp// nobk tpm=32767 nu ts=4 sw=4 noet nofixeol bs=indent,eol,start mouse=a
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a single file. This will confuse Latex-Suite. Set your grep
