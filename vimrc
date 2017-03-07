@@ -20,10 +20,10 @@ Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filet plugin indent on
-syn on
 set dir=/var/tmp// nobk tpm=32767 nu ts=4 sw=4 noet nofixeol bs=indent,eol,start mouse=a
 set popt=paper:letter,left:0.75in,right:0.75in,top:0.75in,bottom:0.75in,number:y bg=dark
 colo delek
+syn on
 
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
