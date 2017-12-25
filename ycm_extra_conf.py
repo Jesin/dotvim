@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/python3
 # vim:ft=python:noet:sw=4:ts=4
 
 # This file is NOT licensed under the GPLv3, which is the license for the rest
@@ -79,7 +79,6 @@ else:
 
 SOURCE_EXTENSIONS = ('.cc', '.cpp', '.cxx', '.c', '.m', '.mm')
 SOURCE_EXTENSIONS += tuple(s.upper() for s in SOURCE_EXTENSIONS if s != s.upper())
-del s
 
 def DirectoryOfThisScript():
 	return os.path.dirname( os.path.abspath( __file__ ) )
