@@ -45,7 +45,8 @@ def FindSrc(f):
 def Settings(**k):
 	if k['language'] != 'cfamily':
 		return {}
-	f = FindSrc(k['filename'])
+	k = k['filename']
+	k = FindSrc(k)
 	r = ['-O', '-D_FORTIFY_SOURCE=2', '-Wall', '-Wextra', '-Wpedantic']
-	r.extend(fext_flags.get(os.path.splitext(f)[1].lower(), cxxf))
-	return {'flags': r, 'override_filename': f}
+	r += fext_flags.get(os.path.splitext(k)[1].lower(), cxxf)
+	return {'flags': r, 'override_filename': k}
