@@ -43,6 +43,14 @@ let g:Tex_SmartKeyQuote=0
 let g:Imap_UsePlaceHolders=0
 
 let g:ycm_always_populate_location_list=1
+let g:ycm_auto_hover=''
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_clangd_binary_path='/usr/bin/clangd'
 let g:ycm_global_ycm_extra_conf='~/.vim/ycmrc.py'
+
+nn <unique> <Bslash><Tab> :YcmCompleter Format<CR>
+nn <unique> <Bslash>f :YcmCompleter FixIt<CR>
+nn <unique> <Bslash>g :YcmCompleter GoTo<CR>
+nn <unique> <Bslash>r :YcmForceCompileAndDiagnostics<CR>
+
+nm <unique> <Bslash>h <Plug>(YCMHover)
