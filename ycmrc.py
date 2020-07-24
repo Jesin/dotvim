@@ -1,32 +1,15 @@
 #!/usr/bin/python3
-# vim:ft=python:noet:sw=4:ts=4
+# vim:noet:sw=4:ts=4
 
 import os
 import ycm_core
 
-cf = ('-std=c17', '-x')
-cxxf = ['-std=c++17']
+cf = ['-std=c17', '-O2', '-D_FORTIFY_SOURCE=2', '-Wall', '-Wextra', '-Wpedantic']
+cxxf = cf[:]
+cxxf[0] = '-std=c++17'
 for s in os.listdir('/usr/include/c++/'):
 	cxxf.append('-isystem')
 	cxxf.append('/usr/include/c++/' + s)
-cxxf.append('-x')
-cxxf = tuple(cxxf)
-hxxf = cxxf + ('c++-header',)
-fext_flags = {
-	'.c': cf + ('c',),
-	'.h': cf + ('c-header',),
-	'.m': cf + ('objective-c',),
-	'': hxxf,
-	'.hh': hxxf,
-	'.hpp': hxxf,
-	'.hxx': hxxf,
-	'.tcc': hxxf,
-	'.mm': cxxf + ('objective-c++',)
-}
-del cf
-cxxf += ('c++',)
-for s in ('.cc', '.cpp', '.cxx'):
-	fext_flags[s] = cxxf
 
 
 def FindSrc(f):
@@ -47,6 +30,6 @@ def Settings(**k):
 		return {}
 	k = k['filename']
 	k = FindSrc(k)
-	r = ['-O', '-D_FORTIFY_SOURCE=2', '-Wall', '-Wextra', '-Wpedantic']
-	r += fext_flags.get(os.path.splitext(k)[1].lower(), cxxf)
+	r = os.path.splitext(k)[1].lower()
+	r = cf if r in {'.c', '.h', '.i', '.m', '.mi'} else cxxf
 	return {'flags': r, 'override_filename': k}
