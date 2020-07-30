@@ -10,6 +10,7 @@ cxxf[0] = '-std=c++17'
 for s in os.listdir('/usr/include/c++/'):
 	cxxf.append('-isystem')
 	cxxf.append('/usr/include/c++/' + s)
+del s
 
 
 def FindSrc(f):
