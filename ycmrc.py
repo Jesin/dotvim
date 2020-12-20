@@ -15,8 +15,8 @@ del s
 
 def FindSrc(f):
 	b, e = os.path.splitext(f)
-	if e.lower() in {'', '.h', '.hh', '.hpp', '.hxx', '.tcc'}:
-		for e in ('.cc', '.cpp', '.cxx', '.c', '.m', '.mm', '.tcc'):
+	if e.lower() in {'', '.h', '.h++', '.hh', '.hp', '.hpp', '.hxx', '.tcc'}:
+		for e in ('.cc', '.c++', '.cpp', '.cxx', '.cp', '.c', '.m', '.mm', '.tcc'):
 			r = b + e
 			if os.path.exists(r):
 				return r
@@ -27,7 +27,7 @@ def FindSrc(f):
 
 
 def Settings(**k):
-	if k['language'] != 'cfamily':
+	if 'cfamily' != k['language']:
 		return {}
 	k = k['filename']
 	k = FindSrc(k)
